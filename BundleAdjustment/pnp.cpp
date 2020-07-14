@@ -395,6 +395,28 @@ void p3p(){
  */
 void epnp(vector<Point2f>& imagePoints, vector<Point3f>& objectPoints, Mat& K, Sophus::SE3d& T){
     //
+    int N = imagePoints.size();
+
+    Eigen::Matrix3d K_;
+    Eigen::MatrixXd p3d(N, 3);
+    Eigen::MatrixXd p2d(N, 2);
+
+    cv2eigen(K, K_);
+    for (int i=0; i<N; i++){
+        p3d(i, 0) = objectPoints[i].x;
+        p3d(i, 1) = objectPoints[i].y;
+        p3d(i, 2) = objectPoints[i].z;
+
+        p2d(i, 0) = imagePoints[i].x;
+        p2d(i, 1) = imagePoints[i].y;
+    }
+
+    My_EPNP epnp(K_, p3d, p2d);
+    Matrix3d R;
+    Vector3d t;
+    epnp.estimate(R, t);
+
+    T = Sophus::SE3d(R, t);
 }
 
 
@@ -537,14 +559,14 @@ void find_matches(Mat& img1, Mat& img2, Mat& img_depth1, Mat& K,  vector<Point2f
         ushort d = img_depth1.at<ushort>(static_cast<int>(pt1.x), static_cast<int>(pt1.y));
         if (d<=0)
             continue;
-        d /= 5000.;
-        float x1_ =  (pt1.x - cx)*d / fx;
-        float y1_ =  (pt2.y - cy)*d / fy;
+        float z1_ = d / 5000.0;
+        float x1_ =  (pt1.x - cx)*z1_ / fx;
+        float y1_ =  (pt1.y - cy)*z1_ / fy;
 
         float x2_ = (pt2.x - cx) /fx;
         float y2_ = (pt2.y - cy) /fy;
 
-        objectPoints.push_back(Point3f(x1_, y1_, d));
+        objectPoints.push_back(Point3f(x1_, y1_, z1_));
         imagePoints.push_back(pt2);
     }
 
@@ -566,7 +588,7 @@ int main(int argc, char** argv)
 
     // DLT
     Sophus::SE3d T;
-
+    if(false)
    {
         pnp_dlt(imagePoints, objectPoints, K, T);
         cout << "DLT T :"  << T.matrix() << endl;
@@ -576,7 +598,7 @@ int main(int argc, char** argv)
            0.0217882    0.0959214      0.99515   0.00392255
          */
     }
-
+    if(false)
     {
         pnp_gauss_newton(imagePoints, objectPoints,K, T);
         cout << " guass newton T :"  << T.matrix() << endl;
@@ -605,6 +627,7 @@ int main(int argc, char** argv)
          */
     }
     // ceres;
+    if(false)
     {
 
         T = Sophus::SE3d(Matrix3d::Identity(), Vector3d(0., 0., 0.));
@@ -617,11 +640,20 @@ int main(int argc, char** argv)
                          0.0339277   0.0139644    0.999327    0.0322941
          */
     }
-
+    if(false)
     {
         T = Sophus::SE3d(Matrix3d::Identity(), Vector3d(0., 0., 0.));
         pnp_g2o(imagePoints, objectPoints, K, T);
         cout << " g2o  T :"  << T.matrix() << endl;
+    }
+    // EPNP
+    {
+        T = Sophus::SE3d(Matrix3d::Identity(), Vector3d(0., 0., 0.));
+        epnp(imagePoints, objectPoints, K, T);
+        cout << " Epnp  T :"  << T.matrix() << endl;
+
+        pnp_gauss_newton(imagePoints, objectPoints,K, T);
+        cout << " guass newton T :"  << T.matrix() << endl;
     }
 
     return 0;

@@ -20,6 +20,29 @@ void  My_EPNP::estimate(Matrix3d &R, Vector3d &t) {
     std::vector<Eigen::Vector3d> control_pts_world;
     choose_control_points(control_pts_world);
 
+    {
+        cout <<"输出三维点坐标" << endl;
+        ofstream  out("pts_world.txt");
+        int N = vp3d.rows();
+        for (int i=0; i<N; i++){
+            out << vp3d(i, 0) << " " << vp3d(i, 1) << " " << vp3d(i, 2) << endl;
+        }
+
+        out.flush();
+        out.close();
+
+    }
+    {
+        cout <<"输出三维点坐标" << endl;
+        ofstream  out("control_pts_world.txt");
+        int N = control_pts_world.size();
+        for (int i=0; i<N; i++){
+            out << control_pts_world[i](0) << " " << control_pts_world[i](1) << " " << control_pts_world[i](2) << endl;
+        }
+
+    }
+
+
     // 根据控制点，计算每个点的系数,也就是 ai1 ai2 ai3 ai4
     vector<Vector4d> hb;
     compute_barycentric_coordinates(control_pts_world, hb);
@@ -49,9 +72,9 @@ void My_EPNP::choose_control_points(std::vector<Eigen::Vector3d>& control_pts_wo
     Eigen::Vector3d  sigma_H = solver_H.singularValues();
     Eigen::Matrix3d  V = solver_H.matrixV();
 
-    Eigen::Vector3d c2 = c1 + sqrt(sigma_H(0))*V.col(0);
-    Eigen::Vector3d c3 = c1 + sqrt(sigma_H(1))*V.col(1);
-    Eigen::Vector3d c4 = c1 + sqrt(sigma_H(2))*V.col(2);
+    Eigen::Vector3d c2 = c1 + sqrt(sigma_H(0)/N)*V.col(0);
+    Eigen::Vector3d c3 = c1 + sqrt(sigma_H(1)/N)*V.col(1);
+    Eigen::Vector3d c4 = c1 + sqrt(sigma_H(2)/N)*V.col(2);
 
     control_pts_world.push_back(c1);
     control_pts_world.push_back(c2);
@@ -77,7 +100,9 @@ void My_EPNP::compute_barycentric_coordinates(vector<Vector3d>& control_pts_worl
 
     for (int i=0; i<N; ++i){
         Eigen::Vector4d ptw ( 0.0, 0.0, 0.0, 1.0 );
-        ptw.block ( 0, 0, 3, 1 ) = vp3d.row(i);
+        ptw(0) = vp3d(i,0);
+        ptw(1) = vp3d(i,1);
+        ptw(2) = vp3d(i,2);
         hb.push_back(C_inv * ptw);
     }
 
@@ -174,6 +199,16 @@ void My_EPNP::camera_position_from_control_points(vector<Vector4d>& hb, vector<V
         gauss_newton(L6_10, rho, betas);
         MatrixXd vp3d_camera(n, 3);
         calcCameraPoints(betas, eigen_vectors, hb, vp3d_camera);
+        {
+            cout <<"输出三维点坐标" << endl;
+            ofstream  out("pts_camrea_2.txt");
+            int N = vp3d_camera.rows();
+            for (int i=0; i<N; i++){
+                out << vp3d_camera(i, 0) << " " << vp3d_camera(i, 1) << " " << vp3d_camera(i, 2) << endl;
+            }
+
+        }
+
         computeRt(vp3d_camera, tempR, tempT);
         double error = reprojectError(tempR, tempT);
         vR.push_back(tempR);
@@ -190,6 +225,15 @@ void My_EPNP::camera_position_from_control_points(vector<Vector4d>& hb, vector<V
         gauss_newton(L6_10, rho, betas);
         MatrixXd vp3d_camera(n, 3);
         calcCameraPoints(betas, eigen_vectors, hb, vp3d_camera);
+        {
+            cout <<"输出三维点坐标" << endl;
+            ofstream  out("pts_camrea_3.txt");
+            int N = vp3d_camera.rows();
+            for (int i=0; i<N; i++){
+                out << vp3d_camera(i, 0) << " " << vp3d_camera(i, 1) << " " << vp3d_camera(i, 2) << endl;
+            }
+
+        }
         computeRt(vp3d_camera, tempR, tempT);
         double error = reprojectError(tempR, tempT);
         vR.push_back(tempR);
@@ -206,6 +250,15 @@ void My_EPNP::camera_position_from_control_points(vector<Vector4d>& hb, vector<V
         gauss_newton(L6_10, rho, betas);
         MatrixXd vp3d_camera(n, 3);
         calcCameraPoints(betas, eigen_vectors, hb, vp3d_camera);
+        {
+            cout <<"输出三维点坐标" << endl;
+            ofstream  out("pts_camrea_4.txt");
+            int N = vp3d_camera.rows();
+            for (int i=0; i<N; i++){
+                out << vp3d_camera(i, 0) << " " << vp3d_camera(i, 1) << " " << vp3d_camera(i, 2) << endl;
+            }
+
+        }
         computeRt(vp3d_camera, tempR, tempT);
         double error = reprojectError(tempR, tempT);
         vR.push_back(tempR);
@@ -221,6 +274,8 @@ void My_EPNP::camera_position_from_control_points(vector<Vector4d>& hb, vector<V
             minIndex = i;
         }
     }
+
+    cout << "error:" << minError << " index:" << minIndex << endl;
 
     R = vR.at(minIndex);
     t = vt.at(minIndex);
@@ -254,7 +309,7 @@ double My_EPNP::calcCameraPoints(Vector4d& betas,  MatrixXd& eigen_vectors, vect
 
 double My_EPNP::reprojectError(Matrix3d& R, Vector3d& t){
 
-    int n = vp3d.size();
+    int n = vp3d.rows();
 
     double error=0.0;
     for (int i=0; i < n; ++i){
@@ -263,7 +318,7 @@ double My_EPNP::reprojectError(Matrix3d& R, Vector3d& t){
 
        Vector2d diff = vp2d.row(i).transpose() - pc.head(2);
 
-       error += diff.dot(diff);
+       error += sqrt(diff.dot(diff));
 
     }
     error /= n;
@@ -422,22 +477,31 @@ void  My_EPNP::computeRt(MatrixXd& p3d_c, Matrix3d& R, Vector3d& t){
 
     Vector3d pw_center = Vector3d ::Zero();
     Vector3d pc_center = Vector3d::Zero();
-    int N = p3d_c.size();
+    int N = p3d_c.rows();
     pw_center(0) = vp3d.col(0).mean();
-    pw_center(0) = vp3d.col(1).mean();
-    pw_center(0) = vp3d.col(2).mean();
+    pw_center(1) = vp3d.col(1).mean();
+    pw_center(2) = vp3d.col(2).mean();
 
     pc_center(0) = p3d_c.col(0).mean();
-    pc_center(0) = p3d_c.col(1).mean();
-    pc_center(0) = p3d_c.col(2).mean();
+    pc_center(1) = p3d_c.col(1).mean();
+    pc_center(2) = p3d_c.col(2).mean();
 
 
     MatrixXd Pw(N, 3);
     MatrixXd Pc(N, 3);
 
-    Pw = (vp3d.transpose()-pw_center).transpose();
 
-    Pc = (p3d_c.transpose()-pc_center).transpose();
+    for(int i=0;i<N;i++){
+        Pw(i, 0) = vp3d(i, 0) - pw_center(0);
+        Pw(i, 1) = vp3d(i, 1) - pw_center(1);
+        Pw(i, 2) = vp3d(i, 2) - pw_center(2);
+
+        Pc(i, 0) = p3d_c(i, 0) - pc_center(0);
+        Pc(i, 1) = p3d_c(i, 1) - pc_center(1);
+        Pc(i, 2) = p3d_c(i, 2) - pc_center(2);
+
+    }
+
 
     Matrix3d W = Pc.transpose()*Pw; //3x3
 
