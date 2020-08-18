@@ -588,7 +588,7 @@ int main(int argc, char** argv)
 
     // DLT
     Sophus::SE3d T;
-    if(false)
+    if(true)
    {
         pnp_dlt(imagePoints, objectPoints, K, T);
         cout << "DLT T :"  << T.matrix() << endl;
@@ -598,7 +598,7 @@ int main(int argc, char** argv)
            0.0217882    0.0959214      0.99515   0.00392255
          */
     }
-    if(false)
+    if(true)
     {
         pnp_gauss_newton(imagePoints, objectPoints,K, T);
         cout << " guass newton T :"  << T.matrix() << endl;
@@ -627,7 +627,7 @@ int main(int argc, char** argv)
          */
     }
     // ceres;
-    if(false)
+    if(true)
     {
 
         T = Sophus::SE3d(Matrix3d::Identity(), Vector3d(0., 0., 0.));
@@ -640,7 +640,7 @@ int main(int argc, char** argv)
                          0.0339277   0.0139644    0.999327    0.0322941
          */
     }
-    if(false)
+    if(true)
     {
         T = Sophus::SE3d(Matrix3d::Identity(), Vector3d(0., 0., 0.));
         pnp_g2o(imagePoints, objectPoints, K, T);
