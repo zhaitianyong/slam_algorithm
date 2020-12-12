@@ -9,7 +9,7 @@ set(CMAKE_BUILD_TYPE "Debug")
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 # opencv
-find_package(OpenCV 3.0 QUIET)
+find_package(OpenCV 4.1 QUIET)
 if(NOT OpenCV_FOUND)
     find_package(OpenCV 2.4.3 QUIET)
     if(NOT OpenCV_FOUND)
@@ -73,6 +73,12 @@ add_executable(pose_2d2d
         BundleAdjustment/pose_2d2d.cpp
         CMakeLists.txt)
 target_link_libraries(pose_2d2d
+        ${OpenCV_LIBS}
+        ${EIGEN3_LIBS}
+        )
+
+add_executable(image_stitch Features/image_stitch.cpp)
+target_link_libraries(image_stitch
         ${OpenCV_LIBS}
         ${EIGEN3_LIBS}
         )
