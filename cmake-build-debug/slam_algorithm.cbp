@@ -5,7 +5,7 @@
 		<Option title="slam_algorithm"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\..\usr\local\share\sophus\;CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\Ceres\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\eigen3\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\gflags\;CMake Files\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\Ceres\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\sophus\;CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\eigen3\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\gflags\;CMake Files\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
@@ -27,6 +27,122 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="stereo">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/stereo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 stereo"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stereo/fast">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/stereo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 stereo/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangulator">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/triangulator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 triangulator"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangulator/fast">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/triangulator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 triangulator/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="gauss_newton">
 				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/gauss_newton" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
@@ -39,7 +155,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -68,7 +184,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -80,6 +196,64 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 gauss_newton/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stereo_calibrate">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/stereo_calibrate" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 stereo_calibrate"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stereo_calibrate/fast">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/stereo_calibrate" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 stereo_calibrate/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -98,7 +272,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -128,7 +302,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -157,7 +331,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -186,7 +360,7 @@
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
-					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -213,6 +387,64 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="image_stitch">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/image_stitch" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 image_stitch"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="image_stitch/fast">
+				<Option output="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/image_stitch" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/include"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/3rdparty/Sophus"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/local/include/opencv4"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 image_stitch/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/atway/code/slam/MVGAlgorithm/slam_algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/BundleAdjustment/My_EPNP.cpp">
 			<Option target="pnp"/>
@@ -231,32 +463,41 @@
 			<Option target="pnp"/>
 			<Option target="pose_2d2d"/>
 		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Features/image_stitch.cpp">
+			<Option target="image_stitch"/>
+		</Unit>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Optimization/gauss_newton.cpp">
 			<Option target="gauss_newton"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Stereo/fundamental_essential_test.cpp">
+			<Option target="stereo"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Stereo/stereo.cpp">
+			<Option target="stereo"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Stereo/stereo.h">
+			<Option target="stereo"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Stereo/stereo_calibrate.cpp">
+			<Option target="stereo_calibrate"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/Stereo/triangulator.cpp">
+			<Option target="triangulator"/>
 		</Unit>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
-		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
-		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
-		</Unit>
-		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/Ceres/CeresConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
@@ -278,6 +519,15 @@
 		</Unit>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/lib/cmake/Ceres/FindGlog.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
+		</Unit>
+		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/local/share/sophus/cmake/SophusTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\sophus\cmake\"/>
 		</Unit>
 		<Unit filename="/home/atway/code/slam/MVGAlgorithm/slam_algorithm/../../../../../../usr/lib/cmake/eigen3/Eigen3Config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\eigen3\"/>

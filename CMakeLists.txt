@@ -82,3 +82,22 @@ target_link_libraries(image_stitch
         ${OpenCV_LIBS}
         ${EIGEN3_LIBS}
         )
+
+add_executable(triangulator Stereo/triangulator.cpp)
+target_link_libraries(triangulator
+        ${OpenCV_LIBS}
+        ${EIGEN3_LIBS}
+        )
+
+add_executable(stereo_calibrate Stereo/stereo_calibrate.cpp)
+target_link_libraries(stereo_calibrate
+        ${OpenCV_LIBS}
+        ${EIGEN3_LIBS}
+        )
+
+
+add_executable(stereo Stereo/stereo.h Stereo/stereo.cpp Stereo/fundamental_essential_test.cpp)
+target_link_libraries(stereo
+        ${OpenCV_LIBS}
+        ${EIGEN3_LIBS}
+        )
